@@ -21,15 +21,15 @@ Hand-wired Planck with Bluetooth squeezed into official OLKB [high profile wood 
       {1}[F7] → │ ⚬ A0    BAT ⚬ │
       {2}[F6] → │ ⚬ A1    LED ⚬ │
       {3}[F5] → │ ⚬ A2    USB ⚬ │
-      {4}[F4] → │ ⚬ A3     13 ⚬ │ ← [C7](4)
-      {5}[F1] → │ ⚬ A4     12 ⚬ │ ← [D6](8)
-      {6}[F0] → │ ⚬ A5     11 ⚬ │ ← [B7](3)
-                │ ⚬ SCK    10 ⚬ │ ← [B6](7)
+      {4}[F4] → │ ⚬ A3     13 ⚬ │ ← [C7](5)
+      {5}[F1] → │ ⚬ A4     12 ⚬ │ ← [D6](1)
+      {6}[F0] → │ ⚬ A5     11 ⚬ │ ← [B7](6)
+                │ ⚬ SCK    10 ⚬ │ ← [B6](2)
                 │ ⚬ MOSI    9 ⚬ │
-                │ ⚬ MISO    6 ⚬ │ ← [D7](6)
-                │ ⚬ RX ────┐5 ⚬ │ ← [C6](2)
-                │ ⚬ TX    SCL ⚬ │ ← [D0](5)
-                │ ⚬ DFU   SDA ⚬ │ ← [D1](1)
+                │ ⚬ MISO    6 ⚬ │ ← [D7](3)
+                │ ⚬ RX ────┐5 ⚬ │ ← [C6](7)
+                │ ⚬ TX    SCL ⚬ │ ← [D0](4)
+                │ ⚬ DFU   SDA ⚬ │ ← [D1](8)
                 │ ◯  │─────│ ◯  │
                 └────┴─────┴────┘
 
