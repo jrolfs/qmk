@@ -21,6 +21,10 @@
 
 #define DEBOUNCING_DELAY 5
 
+#define RGB_DI_PIN D3
+#define RGBLIGHT_TIMER
+#define RGBLED_NUM 11
+
 #define IS_COMMAND() ( \
     keyboard_report->mods == (MOD_BIT(KC_LSHIFT) | MOD_BIT(KC_RSHIFT)) \
 )
