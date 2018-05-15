@@ -13,12 +13,11 @@
 #define MATRIX_ROWS 8
 #define MATRIX_COLS 6
 
-#define MATRIX_ROW_PINS { D6, B6, D7, D0, C7, B7, C6, D1 }
-#define MATRIX_COL_PINS { F7, F6, F5, F4, F0, F1 }
+#define MATRIX_ROW_PINS { D3, D2, F0, F1, F4, F5, F6, F7 }
+#define MATRIX_COL_PINS { C6, D7, B6, B7, D6, C7 }
 #define UNUSED_PINS
 
 #define DIODE_DIRECTION COL2ROW
-
 #define DEBOUNCING_DELAY 5
 
 #define RGB_DI_PIN D3
