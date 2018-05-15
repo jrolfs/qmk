@@ -7,8 +7,8 @@
 #define PRODUCT_ID      0x6060
 #define DEVICE_VER      0x0001
 #define MANUFACTURER    Jamie
-#define PRODUCT         Hand Squeezed
-#define DESCRIPTION     Handwired Planck Keyboard
+#define PRODUCT         UN 3480
+#define DESCRIPTION     💣
 
 #define MATRIX_ROWS 8
 #define MATRIX_COLS 6
