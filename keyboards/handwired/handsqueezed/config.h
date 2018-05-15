@@ -26,6 +26,8 @@
 #define RGBLIGHT_TIMER
 #define RGBLED_NUM 11
 
+#define OUTPUT_DEFAULT OUTPUT_AUTO
+
 #define IS_COMMAND() ( \
     keyboard_report->mods == (MOD_BIT(KC_LSHIFT) | MOD_BIT(KC_RSHIFT)) \
 )
