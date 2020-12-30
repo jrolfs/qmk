@@ -16,7 +16,21 @@
 #include QMK_KEYBOARD_H
 #include "brandonschlack.h"
 
+
+//
+// Custom Keycodes
+
+enum keymap_keycodes {
+    P_XMAS = KEYMAP_SAFE_RANGE
+};
+
+
+//
+// Layers
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+
+
 /* Base Layer
  * ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
  * │Esc│! 1│@ 2│# 3│$ 4│% 5│^ 6│& 7│* 8│( 9│) 0│_ -│+ =│| \│ ⌫ │ ` │
@@ -33,9 +47,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_BASE] = LAYOUT_all(
   KC_GESC, KC_1,    KC_2,    KC_3, KC_4,   KC_5, KC_6,   KC_7, KC_8,   KC_9,    KC_0,    KC_MINS, KC_EQL,  XXXXXXX, KC_BSPC, KC_GRV,  \
   KC_TAB,  KC_Q,    KC_W,    KC_E, KC_R,   KC_T, KC_Y,   KC_U, KC_I,   KC_O,    KC_P,    KC_LBRC, KC_RBRC, /**/     KC_BSLS, KC_VOLU, \
-  CTL_ESC, /**/     KC_A,    KC_S, KC_D,   KC_F, KC_G,   KC_H, KC_J,   KC_K,    KC_L,    KC_SCLN, KC_QUOT, KC_ENT,  /**/     KC_VOLD, \
-  KC_LSFT, XXXXXXX, KC_Z,    KC_X, KC_C,   KC_V, KC_B,   KC_N, KC_M,   KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT, /**/     KC_UP,   KC_MUTE, \
+  CTL_ESC, /**/     KC_A,    KC_S, KC_D,   KC_F, KC_G,   KC_H, KC_J,   KC_K,    KC_L,    KC_SCLN, KC_QUOT, /**/     KC_ENT,  KC_VOLD, \
+  KC_LSFT, XXXXXXX, KC_Z,    KC_X, KC_C,   KC_V, KC_B,   KC_N, KC_M,   KC_COMM, KC_DOT,  KC_SLSH, /**/     KC_RSFT, KC_UP,   KC_MUTE, \
   KC_LCTL, KC_LOPT, KC_LCMD, /**/  KC_SPC, /**/  FN_LYR, /**/  KC_SPC, /**/     KC_RCMD, KC_ROPT, FN2_LYR, KC_LEFT, KC_DOWN, KC_RGHT),
+
 
 /* Function Layer
  * ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
@@ -43,19 +58,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ├───┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴───┼───┤
  * │RMod │RH+│RS+│RV+│RST│   │   │   │   │   │F13│F14│F15│ MSN │ » │
  * ├─────┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴─────┼───┤
- * │      │RH-│RS-│RV-│   │   │   │   │KMP│   │   │   │ Adjust │ « │
+ * │      │RH-│RS-│RV-│   │   │ ← │ ↓ │ ↑ │ → │   │   │ Adjust │ « │
  * ├──────┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴────┬───┼───┤
- * │        │RTg│RLy│RTh│VRN│   │   │   │Prv│Nxt│Ply│      │ ⇞ │ ▸ │
+ * │        │RTg│RLy│RTh│VRN│   │   │KMP│Prv│Nxt│Ply│      │ ⇞ │ ▸ │
  * ├────┬───┴┬──┴─┬─┴───┴───┴┬──┴─┬─┴───┴──┬┴──┬┴──┬┴──┬───┼───┼───┤
  * │    │    │    │          │ Fn │ Space  │Cmd│ ⌥ │ ? │Hme│ ⇟ │End│
  * └────┴────┴────┴──────────┴────┴────────┴───┴───┴───┴───┴───┴───┘
  */
 [_FN1] = LAYOUT_all(
-  QM_MAKE, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  MC_LHPD, KC_DEL,  MC_SLPD, \
-  RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI, RESET,   _______, _______, _______, _______, _______, KC_F13,  KC_F14,  KC_F15,  /**/     MC_MSSN, KC_MNXT, \
-  _______, /**/     RGB_HUD, RGB_SAD, RGB_VAD, _______, _______, _______, _______, QM_KYMP, _______, _______, _______, TG_ADJT, /**/     KC_MPRV, \
-  _______, XXXXXXX, RGB_TOG, RGB_LYR, RGB_THM, QM_VRSN, _______, _______, _______, KC_MPRV, KC_MNXT, KC_MPLY, _______, /**/     KC_PGUP, KC_MPLY, \
-  _______, _______, _______, /**/     XXXXXXX, /**/     _______, /**/     XXXXXXX, /**/     _______, _______, XXXXXXX, KC_HOME, KC_PGDN, KC_END),
+  QM_MAKE, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,   KC_F11,  KC_F12,  MC_LHPD, KC_DEL,  MC_SLPD, \
+  RGB_MOD, RGB_HUI, RGB_SAI, RGB_VAI, RESET,   _______, _______, _______, _______, _______, KC_F13,   KC_F14,  KC_F15,  /**/     MC_MSSN, KC_MNXT, \
+  _______, /**/     RGB_HUD, RGB_SAD, RGB_VAD, _______, _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT, _______, _______, /**/     TG_ADJT, KC_MPRV, \
+  _______, XXXXXXX, RGB_TOG, RGB_LYR, RGB_THM, QM_VRSN, _______, _______, QM_KYMP, KC_MPRV, KC_MNXT,  KC_MPLY, /**/     _______, KC_PGUP, KC_MPLY, \
+  _______, _______, _______, /**/     XXXXXXX, /**/     _______, /**/     XXXXXXX, /**/     _______,  _______, XXXXXXX, KC_HOME, KC_PGDN, KC_END),
+
 
 /* Function Layer 2
  * ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
@@ -65,7 +81,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ├─────┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴─────┼───┤
  * │      │   │   │   │   │   │   │   │   │   │   │   │        │ ☼ │
  * ├──────┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴────┬───┼───┤
- * │        │   │   │   │   │   │   │   │   │   │   │      │   │   │
+ * │        │   │ ❄︎ │   │   │   │   │   │   │   │   │      │   │   │
  * ├────┬───┴┬──┴─┬─┴───┴───┴┬──┴─┬─┴───┴──┬┴──┬┴──┬┴──┬───┼───┼───┤
  * │    │    │    │          │    │        │   │   │FN2│   │   │   │
  * └────┴────┴────┴──────────┴────┴────────┴───┴───┴───┴───┴───┴───┘
@@ -73,12 +89,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_FN2] = LAYOUT_all(
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, /**/     _______, KC_BRMU, \
-  _______, /**/     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, /**/     KC_BRMD, \
-  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, /**/     _______, _______, \
+  _______, /**/     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, /**/     _______, KC_BRMD, \
+  _______, XXXXXXX, _______, P_XMAS,  _______, _______, _______, _______, _______, _______, _______, _______, /**/     _______, _______, _______, \
   _______, _______, _______, /**/     _______, /**/     _______, /**/     _______, /**/     _______, _______, _______, _______, _______, _______),
 
 
-/* Adjust Layer Layer
+/* Adjust Layer
  * ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┐
  * │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │   │
  * ├───┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴───┼───┤
@@ -87,9 +103,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * │      │   │   │   │   │   │   │   │   │   │   │   │ Adjust │   │
  * ├──────┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴────┬───┼───┤
  * │        │   │   │   │   │   │   │   │   │   │   │      │   │   │
- * ├────┬───┴┬──┴─┬─┴───┴───┴───┴───┴───┴──┬┴───┼───┴┬─┬───┼───┼───┤
- * │    │    │    │                        │    │    │ │   │   │   │
- * └────┴────┴────┴────────────────────────┴────┴────┴─┴───┴───┴───┘
+ * ├────┬───┴┬──┴─┬─┴───┴───┴┬──┴─┬─┴───┴──┬┴──┬┴──┬┴──┬───┼───┼───┤
+ * │    │    │    │          │    │        │   │   │FN2│   │   │   │
+ * └────┴────┴────┴──────────┴────┴────────┴───┴───┴───┴───┴───┴───┘
  */
 [_ADJUST] = LAYOUT_all(
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
@@ -108,9 +124,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * │      │   │   │   │   │   │   │   │   │   │   │   │        │   │
  * ├──────┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴────┬───┼───┤
  * │        │   │   │   │   │   │   │   │   │   │   │      │   │   │
- * ├────┬───┴┬──┴─┬─┴───┴───┴───┴───┴───┴──┬┴───┼───┴┬─┬───┼───┼───┤
- * │    │    │    │                        │    │    │ │   │   │   │
- * └────┴────┴────┴────────────────────────┴────┴────┴─┴───┴───┴───┘
+ * ├────┬───┴┬──┴─┬─┴───┴───┴┬──┴─┬─┴───┴──┬┴──┬┴──┬┴──┬───┼───┼───┤
+ * │    │    │    │          │    │        │   │   │   │   │   │   │
+ * └────┴────┴────┴──────────┴────┴────────┴───┴───┴───┴───┴───┴───┘
  */
 /*
 [_BLANK] = LAYOUT(
@@ -121,6 +137,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, _______, _______,                   _______,                            _______, _______,                   _______, _______, _______),
 };
 */
+
+
+//
+// Custom Keycodes
+
+bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case P_XMAS:
+            if (record->event.pressed) {
+                SEND_STRING("Merry Christmas Alex!");
+            }
+            break;
+    }
+
+    return true;
+}
+
+
+//
+// Attempts at RGB stuff
 
 const rgblight_segment_t PROGMEM my_layer1_layer[] = RGBLIGHT_LAYER_SEGMENTS(
     {1, 12, HSV_CYAN}
